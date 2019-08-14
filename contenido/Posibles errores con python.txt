@@ -1,0 +1,2 @@
+Si da error al instalar pandas o al importarlo ejecutar en la cmd en C://
+pip install pandas se te instalara el paquete.
