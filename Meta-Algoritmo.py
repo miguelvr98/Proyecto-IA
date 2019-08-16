@@ -5,10 +5,12 @@ import random
 
 from decision_tree_functions import decision_tree_algorithm, decision_tree_predictions
 from helper_functions import train_test_split, calculate_accuracy
+import bootstrapping as btg
 
 adults_train = pd.read_csv('adult_train.csv', header=None,
                        names=['age', 'capital-gain', 'capital-loss', 'hours-per-week',
                               'workClass', 'education', 'marital-status','occupation',
                               'relationship','race','sex','native-country','inconme'])
 
-print(adults_train.shape)  # El metodo shape muestra el numero de filas y columnas del .csv
+print((btg.methodBootstrapping(adults_train,8,10,10,3)))
+
