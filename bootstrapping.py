@@ -11,9 +11,9 @@ def bootstrapping(train, n):
 def methodBootstrapping(adults_train,num_bootstrap,num_trees, num_features, dt_max_depth) :
 
     forest = []
-   for i in range(num_trees):
+    for _ in range(num_trees):
         b = bootstrapping(adults_train,num_bootstrap)
-        tree = decision_tree_algorithm(b,max_depth=dt_max_depth,random_subspace=n_features)
+        tree = decision_tree_algorithm(b,max_depth=dt_max_depth,random_subspace=num_features)
         forest.append(tree)
         indice = indice + 1
     return forest
