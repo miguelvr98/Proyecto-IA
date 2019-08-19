@@ -1,19 +1,17 @@
 import numpy as np
-from decision_tree_functions import decision_tree_algorithm
+from decision_tree_functions import decision_tree_algorithm 
 
-def bootstrapping(train, n):
-
-    indices = np.random.randint(low=0, high=len(train), size=n)
-    result = train.iloc[indices]
+def bootstrapping(train, n_bootstrap):
+    bootstrap_indices = np.random.randint(low=0, high=len(train), size=n_bootstrap)
+    df_bootstrapped = train.iloc[bootstrap_indices]
     
-    return result
+    return df_bootstrapped
 
-def methodBootstrapping(adults_train,num_bootstrap,num_trees, num_features, dt_max_depth) :
-
+def random_forest_algorithm(train, n_trees, n_bootstrap, n_features, dt_max_depth):
     forest = []
-   for i in range(num_trees):
-        b = bootstrapping(adults_train,num_bootstrap)
-        tree = decision_tree_algorithm(b,max_depth=dt_max_depth,random_subspace=n_features)
+    for i in range(n_trees):
+        df_bootstrapped = bootstrapping(train, n_bootstrap)
+        tree = decision_tree_algorithm(df_bootstrapped, max_depth=dt_max_depth, random_subspace=n_features)
         forest.append(tree)
-        indice = indice + 1
+    
     return forest
