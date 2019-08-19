@@ -12,5 +12,17 @@ train = pd.read_csv('adult_train.csv', header=None,
                               'workClass', 'education', 'marital-status','occupation',
                               'relationship','race','sex','native-country','inconme'])
 
-print((btg.random_forest_algorithm(train,n_trees =8 , n_bootstrap =10 , n_features = 10, dt_max_depth= 3)))
+print("¿Number of trees?")
+n_trees = input()
+
+print("Number of bootstrap")
+n_bootstrap= input()
+
+print("¿Number of features?")
+n_features = input()
+
+print("¿Max depth?")
+dt_max_depth = input()
+
+print((btg.random_forest_algorithm(train, int(n_trees) , int(n_bootstrap) , int(n_features), int(dt_max_depth))))
 
